@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="items_class">
+
+        <item>Category</item>
+        <item>Poem</item>
+        <item>Fantasy</item>
+        <item>Moral</item>
+
+    </string-array>
+
+</resources>

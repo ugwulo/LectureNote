@@ -21,9 +21,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Objects;
-
-import dev.ugwulo.lecturenote.MainActivity;
 import dev.ugwulo.lecturenote.R;
 import dev.ugwulo.lecturenote.databinding.ActivityAuthBinding;
 
@@ -73,6 +70,10 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void signInUser(String email, String password) {
+//        testing
+        startActivity(new Intent(AuthActivity.this, MainActivity.class));
+        finish();
+
         if (!validateLoginForm()){
             return;
         }

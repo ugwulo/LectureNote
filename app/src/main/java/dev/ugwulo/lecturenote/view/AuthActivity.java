@@ -1,5 +1,5 @@
 
-package dev.ugwulo.lecturenote.ui;
+package dev.ugwulo.lecturenote.view;
 /**
  * Login User with email and password
  * @Author Ndubuisi Ugwulo
@@ -21,34 +21,50 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 import dev.ugwulo.lecturenote.R;
 import dev.ugwulo.lecturenote.databinding.ActivityAuthBinding;
+import dev.ugwulo.lecturenote.util.Settings;
 
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = AuthActivity.class.getSimpleName();
-    FirebaseUser mUser;
     FirebaseAuth mAuth;
     ActivityAuthBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAuthBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Settings.init(getApplicationContext());
 
         binding.txtSignUp.setOnClickListener(this);
         binding.btnSignIn.setOnClickListener(this);
 //        binding.textForgotPassword.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
+//        binding.textWelcomeBack.setText(Objects.requireNonNull(mAuth.getCurrentUser()).getDisplayName());
 
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-////        updateUI(currentUser);
-//    }
+    private void gotoHome(FirebaseUser user) {
+        if (user != null){
+            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Settings.isLoggedIn()){
+            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
     private void signUp() {
         Intent intent = new Intent(AuthActivity.this, SignUpActivity.class);
@@ -70,10 +86,6 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void signInUser(String email, String password) {
-//        testing
-        startActivity(new Intent(AuthActivity.this, MainActivity.class));
-        finish();
-
         if (!validateLoginForm()){
             return;
         }
@@ -87,25 +99,18 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                 if (!task.isSuccessful()){
                     Log.w(TAG, "signInWithEmail: failed" + task.getException());
                     Toast.makeText(getApplicationContext(),  "Authentication Failed!", Toast.LENGTH_SHORT).show();
-                    updateUI(null);
+                    gotoHome(null);
                 }else {
                     Log.d(TAG, "signInWithEmail: successful");
                     FirebaseUser user = mAuth.getCurrentUser();
-
-                    updateUI(user);
+                    Settings.setLoggedInSharedPref(true);
+                    gotoHome(user);
                 }
                 hideProgressBar();
             }
         });
     }
 
-    private void updateUI(FirebaseUser user) {
-        if (user != null){
-            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
 
     private void showProgressBar() {binding.progressBar.setVisibility(View.VISIBLE);}
     
@@ -133,4 +138,5 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
          return valid;
     }
+
 }

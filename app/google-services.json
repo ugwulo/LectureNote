@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "797756487487",
+    "firebase_url": "https://mobilelecture-6fb46.firebaseio.com",
+    "project_id": "mobilelecture-6fb46",
+    "storage_bucket": "mobilelecture-6fb46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797756487487:android:7b564ecfce94d56eda858a",
+        "android_client_info": {
+          "package_name": "dev.ugwulo.lecturenote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797756487487-o2ls55hicji7fc3trncuhbc25gt7v3jj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev.ugwulo.lecturenote",
+            "certificate_hash": "ea14ce5c901a01802844dc2ad14d20e3152669ea"
+          }
+        },
+        {
+          "client_id": "797756487487-48h2sachimto1km2mvhs03oucbr4kne5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtfvrTzR70_yG1uHMo1Isuy0GFWpZibBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797756487487-48h2sachimto1km2mvhs03oucbr4kne5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

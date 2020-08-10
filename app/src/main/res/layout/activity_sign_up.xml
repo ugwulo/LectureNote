@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignUpActivity"
+    tools:context=".view.SignUpActivity"
     android:orientation="vertical"
     android:background="@color/colorWhite">
     <ProgressBar
@@ -17,78 +17,181 @@
         android:visibility="invisible"
         style="?android:attr/progressBarStyle"/>
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_marginTop="150dp"
-        android:layout_marginStart="150dp"
-        android:layout_width="70dp"
-        android:layout_height="30dp"
+    <TextView
+        android:id="@+id/header_txt"
+        android:layout_marginTop="36dp"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:src="@drawable/firebase_lockup_400"/>
+        android:textSize="36sp"
+        android:textColor="@color/defaultTextColor"
+        android:text="Register Account"/>
 
-    <LinearLayout
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+    <ScrollView
+        android:id="@+id/student_view"
+        android:visibility="visible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/header_txt"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_below="@id/logo"
         android:layout_above="@id/btn_layout">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_centerInParent="true"
-            android:weightSum="9">
+            android:orientation="vertical">
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/student_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="student name"
+                style="@style/EditTextWhite"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/edit_student_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="email"
-                style="@style/EditTextWhite"/>
+                style="@style/EditTextWhite"
+                android:layout_marginBottom="8dp"/>
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/student_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="password"
+                android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
             <EditText
-                android:id="@+id/confirm_password"
+                android:id="@+id/confirm_student_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="confirm password"
+                android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
 
-            <Spinner
-                android:id="@+id/user_type"
-                style="@style/EditTextWhite"
+            <EditText
+                android:id="@+id/edit_reg_num"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:spinnerMode="dropdown"
-                android:entries="@array/user_type"/>
+                android:inputType="text"
+                android:hint="reg number"
+                android:layout_marginBottom="8dp"
+                style="@style/EditTextWhite"/>
+            <EditText
+                android:id="@+id/edit_student_dept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="department"
+                android:layout_marginBottom="8dp"
+                style="@style/EditTextWhite"/>
+            <EditText
+                android:id="@+id/edit_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="level"
+                style="@style/EditTextWhite"/>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/lecturer_view"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header_txt"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_above="@id/btn_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/lecturer_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="lecturer name"
+                style="@style/EditTextWhite"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/lecturer_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="email"
+                style="@style/EditTextWhite"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/lecturer_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="password"
+                android:layout_marginBottom="8dp"
+                style="@style/EditTextWhite"/>
+            <EditText
+                android:id="@+id/confirm_lecturer_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="confirm password"
+                android:layout_marginBottom="8dp"
+                style="@style/EditTextWhite"/>
+
+            <EditText
+                android:id="@+id/edit_staff_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="staff ID"
+                android:layout_marginBottom="8dp"
+                style="@style/EditTextWhite"/>
+            <EditText
+                android:id="@+id/edit_lecturer_dept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="department"
+                android:layout_marginBottom="8dp"
+                style="@style/EditTextWhite"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/btn_layout"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="156dp"
+        android:layout_marginBottom="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="32dp">
         <Button
-            android:id="@+id/btn_register"
+            android:id="@+id/btn_sign_up"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/btn_background"
@@ -97,28 +200,16 @@
             android:fontFamily="@font/work_sans"
             android:textColor="@color/colorWhite"
             android:gravity="center"/>
-        <LinearLayout
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Already have an account?"
-                android:textSize="16sp"
-                android:textColor="@color/defaultTextColor"/>
-            <TextView
-                android:id="@+id/txt_sign_in"
-                android:layout_marginStart="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/btn_background"
-                android:text="Sign In"
-                android:textSize="16sp"/>
 
-        </LinearLayout>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
+            android:id="@+id/txt_sign_in"
+            android:layout_marginStart="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/btn_background"
+            android:text="Already have an account? Sign In"
+            android:textSize="16sp"/>
     </LinearLayout>
 </RelativeLayout>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/White">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/relLayout1"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_profile"
+                    android:textSize="25sp"
+                    android:textColor="@color/defaultTextColor"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/textHeader"/>
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_android"
+                    app:civ_border_width="5dp"
+                    app:civ_border_color="#FFFFFF"
+                    android:layout_below="@+id/textHeader"
+                    android:layout_centerHorizontal="true" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/profile_image"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/relLayout2"
+                    android:layout_marginTop="30dp">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_account"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_user_name"
+                        android:text="user name"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="40dp"
+                        android:textColor="@color/defaultTextColor"/>
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/relLayout2"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/relLayout3">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:tint="@color/blue2"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_reg_no"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="reg number"
+                        android:id="@+id/tv_reg_number"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="40dp"
+                        android:textColor="@color/defaultTextColor"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/relLayout3"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/relLayout4">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/blue2"
+                        android:src="@drawable/ic_email"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_email"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                         android:text="Email"
+                        android:textColor="@color/defaultTextColor"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/relLayout4"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/relLayout5">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_department"
+                        android:tint="@color/blue2"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_department"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:text="Department"
+                        android:textColor="@color/defaultTextColor"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/relLayout5"
+                    android:background="@drawable/grey_border_bottom"
+                    android:id="@+id/relLayout6">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_level"
+                        android:tint="@color/blue2"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_level"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="40dp"
+                        android:text="Level"
+                        android:textColor="@color/defaultTextColor"/>
+
+                </RelativeLayout>
+
+
+                <TextView android:id="@+id/change_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/change_password"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/linkBlue"
+                    android:layout_below="@+id/relLayout6"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_save_profile"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_background"
+        android:text="Save Profile"
+        android:textSize="23sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/work_sans"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"/>
+
+    <ProgressBar
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:backgroundTint="@color/blue2"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
+</RelativeLayout>

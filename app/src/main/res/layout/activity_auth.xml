@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AuthActivity"
+    tools:context=".view.AuthActivity"
     android:orientation="vertical"
     android:background="@color/colorWhite">
 
@@ -17,7 +17,7 @@
         android:layout_height="120dp"
         android:src="@drawable/firebase_lockup_400"/>
     <TextView
-        android:id="@+id/textWelcome"
+        android:id="@+id/textWelcomeBack"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="65dp"
         android:layout_marginStart="16dp"

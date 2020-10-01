@@ -52,6 +52,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -575,7 +576,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }
 
         @Override
-        protected byte[] doInBackground(Uri... params ) {
+        protected byte[] doInBackground(Uri...  params ) {
             Log.d(TAG, "doInBackground: started.");
 
             if(mBitmap == null){

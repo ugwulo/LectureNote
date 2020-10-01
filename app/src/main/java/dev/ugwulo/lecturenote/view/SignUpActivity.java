@@ -42,8 +42,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         if (Settings.isStudentLogin()){
             binding.studentView.setVisibility(View.VISIBLE);
+            binding.lecturerView.setVisibility(View.GONE);
         } else if (Settings.isLecturerLogin()){
             binding.lecturerView.setVisibility(View.VISIBLE);
+            binding.studentView.setVisibility(View.GONE);
         }
 
         btnSignUp = findViewById(R.id.btn_sign_up);

@@ -5,7 +5,7 @@
     android:id="@+id/fragment_detail_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.courses.CourseDetailFragment">
+    tools:context=".view.chat.ChatFragment">
 
     <TextView
         android:id="@+id/text_gallery"

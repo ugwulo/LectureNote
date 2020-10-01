@@ -1,4 +1,4 @@
-package dev.ugwulo.lecturenote.view.courses;
+package dev.ugwulo.lecturenote.view.chat;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,18 +13,18 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import dev.ugwulo.lecturenote.R;
-import dev.ugwulo.lecturenote.viewmodel.CourseViewModel;
+import dev.ugwulo.lecturenote.viewmodel.ChatsViewModel;
 
-public class CourseDetailFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
     public static final String ARG_POSITION = "position";
-    private CourseViewModel courseViewModel;
+    private ChatsViewModel courseViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         courseViewModel =
-                new ViewModelProvider(this).get(CourseViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_course, container, false);
+                new ViewModelProvider(this).get(ChatsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_chat, container, false);
         final TextView textView = root.findViewById(R.id.text_gallery);
         courseViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

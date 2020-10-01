@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LectureNote</string>
+    <string name="app_name">Lecture Notes</string>
     <string-array name="user_type">
         <item>Student</item>
         <item>Lecturer</item>

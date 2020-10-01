@@ -1,5 +1,6 @@
 package dev.ugwulo.lecturenote.view.home;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -8,22 +9,24 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.firebase.ui.database.SnapshotParser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import dev.ugwulo.lecturenote.view.FragmentNavigation;
 import dev.ugwulo.lecturenote.R;
 import dev.ugwulo.lecturenote.databinding.CourseItemBinding;
 import dev.ugwulo.lecturenote.databinding.FragmentHomeBinding;
@@ -31,32 +34,48 @@ import dev.ugwulo.lecturenote.model.courses.Course;
 import dev.ugwulo.lecturenote.view.AddCourseDialogFragment;
 
 public class HomeFragment extends Fragment implements AddCourseDialogFragment.AddCourseListener {
+    public HomeFragment(){}
+    public static HomeFragment getInstance(){
+        return new HomeFragment();
+    }
+    private CourseViewModel mCourseViewModel;
 
+    private FragmentNavigation mFragmentNavigation;
     Course mCourse = new Course();
-    private DatabaseReference mDatabaseReference;
-    private FirebaseRecyclerAdapter mFirebaseRecyclerAdapter;
-    private LinearLayoutManager mLayoutManager;
+
     private RecyclerView mRecyclerView;
-    private FragmentHomeBinding mHomeBinding;
+    FragmentHomeBinding mFragmentHomeBinding;
     private CourseItemBinding mCourseItemBinding;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        context = getActivity();
+        mFragmentNavigation = (FragmentNavigation) context;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        mHomeBinding = FragmentHomeBinding.inflate(getLayoutInflater());
-        View root = mHomeBinding.getRoot();
+        mFragmentHomeBinding = FragmentHomeBinding.inflate(getLayoutInflater());
+        mCourseViewModel = new ViewModelProvider(this).get(CourseViewModel.class);
+        return mFragmentHomeBinding.getRoot();
+    }
 
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView = mHomeBinding.recyclerView;
-        mRecyclerView.setLayoutManager(mLayoutManager);
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView = mFragmentHomeBinding.recyclerView;
+        mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.setHasFixedSize(true);
-        mHomeBinding.fab.setOnClickListener(new View.OnClickListener() {
+
+        fetchValues();
+        mFragmentHomeBinding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog();
             }
         });
-        init();
-        return root;
     }
 
     private void showDialog() {
@@ -65,69 +84,37 @@ public class HomeFragment extends Fragment implements AddCourseDialogFragment.Ad
         dialogFragment.show(getParentFragmentManager(), "AddCourseDialogFragment");
     }
 
-    private void init() {
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child(getString(R.string.dbnode_course));
-////        initialize course node
-//        Course course = new Course("Web Development", "COM 312", "Mr. Onyike");
-//        mDatabaseReference.setValue(course);
-        /**
-         * get data to populate recyclerview
-         */
-        fetchValues();
-    }
-
     private void fetchValues() {
-        Query query1 = mDatabaseReference;
+
+
+//        Query query1 = FirebaseDatabase.getInstance().getReference().child("course").limitToLast(100);
 
         FirebaseRecyclerOptions<Course> options = new FirebaseRecyclerOptions.Builder<Course>()
-                .setQuery(query1, new SnapshotParser<Course>() {
-                    @NonNull
-                    @Override
-                    public Course parseSnapshot(@NonNull DataSnapshot snapshot) {
-                        return new Course(snapshot.child("course_title").getValue().toString(),
-                                snapshot.child("course_code").getValue().toString(),
-                                snapshot.child("course_lecturer").getValue().toString());
-                    }
-                })
+                .setSnapshotArray(mCourseViewModel.courses)
+                .setLifecycleOwner(getActivity())
                 .build();
 
-        mFirebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Course, CourseViewHolder>(options){
+        FirebaseRecyclerAdapter<Course, CourseHolder> adapter = new FirebaseRecyclerAdapter<Course, CourseHolder>(options){
             @NonNull
             @Override
-            public CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public CourseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 mCourseItemBinding = CourseItemBinding.inflate(LayoutInflater.from(getActivity()), parent, false);
-                View view = mCourseItemBinding.getRoot();
-                return new CourseViewHolder(view);
+                return new CourseHolder(mCourseItemBinding);
             }
 
             @Override
-            public void onBindViewHolder(@NonNull CourseViewHolder holder, int position, Course course) {
+            public void onBindViewHolder(@NonNull CourseHolder holder, int position, @NonNull Course course) {
                 holder.bind(course);
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getActivity(), String.valueOf(position), Toast.LENGTH_LONG).show();
-                    }
-                });
+                holder.binding.rootView.setOnClickListener(new View.OnClickListener() {
+                     @Override
+                     public void onClick(View view) {
+                          mFragmentNavigation.navigateToCourseDetailsFragment(getItem(position).getCourse_code());
+                     }
+                 });
             }
         };
 
-        mRecyclerView.setAdapter(mFirebaseRecyclerAdapter);
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mFirebaseRecyclerAdapter.startListening();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mFirebaseRecyclerAdapter != null){
-            mFirebaseRecyclerAdapter.stopListening();
-        }
+        mRecyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -158,26 +145,31 @@ public class HomeFragment extends Fragment implements AddCourseDialogFragment.Ad
         Toast.makeText(getActivity(), "Cancelled", Toast.LENGTH_SHORT).show();
     }
 
+    public static class CourseHolder extends RecyclerView.ViewHolder {
+    CourseItemBinding binding;
 
-    public class CourseViewHolder extends RecyclerView.ViewHolder {
-        public CourseViewHolder(@NonNull View view) {
-            super(view);
-        }
+    public CourseHolder(@NonNull CourseItemBinding courseItemBinding) {
+        super(courseItemBinding.getRoot());
 
-        public void bind(Course course){
-            setCourseCode(course.getCourse_code());
-            setCourseTitle(course.getCourse_title());
-            setCourseLecturer(course.getCourse_lecturer());
-        }
-        private void setCourseTitle(String title){
-            mCourseItemBinding.tvCourseTitle.setText(title);
-        }
-        private void setCourseCode(String courseCode){
-            mCourseItemBinding.tvCourseCode.setText(courseCode);
-        }
-
-        private void setCourseLecturer(String courseLecturer){
-            mCourseItemBinding.tvLecturerName.setText(courseLecturer);
-        }
+        binding = courseItemBinding;
     }
+
+    public void bind(Course course){
+        setCourseCode(course.getCourse_code());
+        setCourseTitle(course.getCourse_title());
+        setCourseLecturer(course.getCourse_lecturer());
+    }
+    private void setCourseTitle(String title){
+        binding.tvCourseTitle.setText(title);
+    }
+    private void setCourseCode(String courseCode){
+        binding.tvCourseCode.setText(courseCode);
+    }
+
+    private void setCourseLecturer(String courseLecturer){
+        binding.tvLecturerName.setText(courseLecturer);
+    }
+
+}
+
 }

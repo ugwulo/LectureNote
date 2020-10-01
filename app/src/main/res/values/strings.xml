@@ -95,7 +95,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_course">Courses</string>
+    <string name="menu_chat">Conversation</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_settings">Settings</string>
     <string name="user_profile">Profile</string>
@@ -114,5 +114,8 @@
     <string name="dbnode_lecturer">lecturer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_notes">Click the image to add new notes</string>
+    <string name="notes_off">There are no notes available for this course yet,
+        check back later</string>
 
 </resources>

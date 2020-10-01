@@ -10,9 +10,9 @@
             android:icon="@drawable/ic_home"
             android:title="@string/menu_home" />
         <item
-            android:id="@+id/nav_courses"
+            android:id="@+id/nav_chat"
             android:icon="@drawable/ic_course"
-            android:title="@string/menu_course" />
+            android:title="@string/menu_chat" />
     </group>
     <group android:checkableBehavior="single">
         <item

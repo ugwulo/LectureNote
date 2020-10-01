@@ -46,6 +46,7 @@
             android:id="@+id/edit_reg_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/defaultTextColor"
             android:hint="enter reg number"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>
@@ -69,6 +70,7 @@
             android:id="@+id/edit_staff_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/defaultTextColor"
             android:hint="enter staff ID"
             android:layout_alignParentEnd="true"/>
     </RelativeLayout>

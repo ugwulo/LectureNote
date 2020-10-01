@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:textSize="23sp"
         android:textColor="@color/defaultTextColor"
-        android:text="Welcome Back User.name,"/>
+        android:text="Welcome Back @{User.name},"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

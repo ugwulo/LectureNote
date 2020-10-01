@@ -1,0 +1,46 @@
+<!doctype html>
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="robots" content="all,follow">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="csrf-token" content="{{ csrf_token() }}">
+      
+
+
+        <title>{{session()->has('client') ?'DADAS Delivery' : 'DADAS Delivery'}}</title>
+
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/global.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/textbox.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/skeletonLoader.css') }}" rel="stylesheet">
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/featherIcon.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/textbox.js') }}" async defer></script>
+        <script src="{{ asset('js/swal.js') }}" async defer></script>
+        <!-- Start of Async ProveSource Code --><script>!function(o,i){window.provesrc&&window.console&&console.error&&console.error("ProveSource is included twice in this page."),provesrc=window.provesrc={dq:[],display:function(){this.dq.push(arguments)}},o._provesrcAsyncInit=function(){provesrc.init({apiKey:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI1ZWNmNzA3ZGM1NTg0Njc3YjFkZDdiNjYiLCJpYXQiOjE1OTA2NTMwNTN9.nmTV1C2YCJMurwzh5hGozhi0PNpG4ghcbOo-ODdx50M",v:"0.0.4"})};var r=i.createElement("script");r.type="text/javascript",r.async=!0,r["ch"+"ar"+"set"]="UTF-8",r.src="https://cdn.provesrc.com/provesrc.js";var e=i.getElementsByTagName("script")[0];e.parentNode.insertBefore(r,e)}(window,document);</script><!-- End of Async ProveSource Code -->
+       
+        <script>
+            var loader = '<span><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></span>'
+        </script>
+
+        {{-- ONLINE INCLUDES --}}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    </head>
+    <body>
+        <input type="hidden" name="appUrl" id="appUrl" value="{{config('app.url')}}">
+        @yield('style')
+        @yield('content')
+        @yield('script')
+        <script>feather.replace()</script>
+    </body>
+</html>

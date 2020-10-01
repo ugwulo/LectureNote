@@ -15,8 +15,9 @@ import androidx.lifecycle.ViewModelProvider;
 import dev.ugwulo.lecturenote.R;
 import dev.ugwulo.lecturenote.viewmodel.CourseViewModel;
 
-public class CourseFragment extends Fragment {
+public class CourseDetailFragment extends Fragment {
 
+    public static final String ARG_POSITION = "position";
     private CourseViewModel courseViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,

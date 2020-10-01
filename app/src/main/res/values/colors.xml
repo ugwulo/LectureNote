@@ -25,4 +25,22 @@
     <color name="colorPrimaryTransparent">#e14e53f7</color>
     <color name="btn_background">#3913B8</color>
     <color name="defaultTextColor">#464646</color>
+
+    <color name="colorThird">#c6cbef</color>
+    <color name="colorForth">#e3e7f1</color>
+
+    //Background
+    <color name="backgroundApp">#f4f4f4</color>
+
+    //Button
+    <color name="colorTransparent">#00000000</color>
+    <color name="disable">#DDDDDD</color>
+
+    //Text
+    <color name="textColorPrimaryDark">#2c2c2c</color>
+    <color name="textColorPrimary">#4b4b4c</color>
+    <color name="textColorAccent">#808080</color>
+
+    //Others
+    <color name="white">#ffffff</color>
 </resources>

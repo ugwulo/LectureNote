@@ -1,3 +1,5 @@
 # LectureNote
 This is an Android Project in Java.
-This app helps students in remote learning and collaboration
+This is also an CSE Project
+This App Helps Students And Users In Advanced Remote Learning And Collaboration.
+

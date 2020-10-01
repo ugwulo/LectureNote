@@ -1,3 +1,3 @@
 # LectureNote
-This is a C-Sharp Project.
+This is an Android Project in Java.
 This app helps students in remote learning and collaboration

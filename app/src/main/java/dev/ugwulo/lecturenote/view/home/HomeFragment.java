@@ -105,7 +105,7 @@ public class HomeFragment extends Fragment implements AddCourseDialogFragment.Ad
             @Override
             public void onBindViewHolder(@NonNull CourseHolder holder, int position, @NonNull Course course) {
                 holder.bind(course);
-                holder.binding.rootView.setOnClickListener(new View.OnClickListener() {
+                holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
                      @Override
                      public void onClick(View view) {
                           mFragmentNavigation.navigateToCourseDetailsFragment(getItem(position).getCourse_code());

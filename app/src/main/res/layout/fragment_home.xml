@@ -21,8 +21,8 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             app:backgroundTint="@color/colorPrimary"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="17dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/fab"

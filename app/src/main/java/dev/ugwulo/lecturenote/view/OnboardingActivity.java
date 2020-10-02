@@ -91,7 +91,7 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
                 if (group.getCheckedRadioButtonId() == R.id.studentRadio) {
                     mBinding.editRegNum.setVisibility(View.VISIBLE);
                     mBinding.editStaffId.setVisibility(View.GONE);
-                    mBinding.btnVerify.setEnabled(!TextUtils.isEmpty(mBinding.editStaffId.getEditText().getText().toString()));
+                    mBinding.btnVerify.setEnabled(!TextUtils.isEmpty(mBinding.editRegNum.getEditText().getText().toString()));
                 } else {
                     mBinding.editRegNum.setVisibility(View.GONE);
                     mBinding.editStaffId.setVisibility(View.VISIBLE);

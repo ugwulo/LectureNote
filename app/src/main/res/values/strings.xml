@@ -32,6 +32,8 @@
     <string name="status_verification_succeeded">Verification succeeded</string>
     <string name="status_sign_in_failed">Sign-in failed</string>
     <string name="instant_validation">(instant validation)</string>
+    <string name="personal_infor">Personal Information</string>
+    <string name="contact_info">Contact Information</string>
 
     <string name="firebase_status_fmt">Firebase UID: %s</string>
     <string name="firebase_user_management">Firebase User Management</string>

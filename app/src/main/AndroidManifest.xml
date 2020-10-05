@@ -27,7 +27,7 @@
             android:name=".view.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.AppBarOverlay" />
-        <activity android:name=".view.AuthActivity"/>
+        <activity android:name=".view.AuthActivity" android:theme="@style/MaterialTheme" />
         <activity android:name=".view.SignUpActivity" />
 
         <meta-data

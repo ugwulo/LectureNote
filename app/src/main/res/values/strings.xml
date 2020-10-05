@@ -110,7 +110,7 @@
     <string name="dialog_change_photo">ChangePhotoDialog</string>
     <string name="field_profile_image">image_url</string>
     <string name="dbnode_course">course</string>
-    <string name="onboarding_welcome">Welcome to LectureNotes
+    <string name="onboarding_welcome">LectureNotes
         Department of Computer Science
         Federal Polytechnic Nekede</string>
     <string name="dbnode_lecturer">lecturer</string>

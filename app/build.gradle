@@ -34,6 +34,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     def lifecycle_version = "2.2.0"
     def arch_version = "2.1.0"
 
@@ -77,6 +78,9 @@ dependencies {
 
 //    circle image view
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+//    google material library
+    implementation 'com.google.android.material:material:1.2.1'
 
 }
 

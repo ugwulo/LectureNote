@@ -50,6 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="student name"
                 style="@style/EditTextWhite"
                 android:layout_marginBottom="8dp"/>
@@ -59,6 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textColorHint="@color/defaultTextColor"
+                android:textColor="@color/defaultTextColor"
                 android:hint="email"
                 style="@style/EditTextWhite"
                 android:layout_marginBottom="8dp"/>
@@ -68,6 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="password"
                 android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
@@ -76,6 +82,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="confirm password"
                 android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
@@ -86,12 +94,16 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:hint="reg number"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
             <EditText
                 android:id="@+id/edit_student_dept"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:inputType="text"
                 android:hint="department"
                 android:layout_marginBottom="8dp"
@@ -101,6 +113,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="level"
                 style="@style/EditTextWhite"/>
 
@@ -130,6 +144,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="lecturer name"
                 style="@style/EditTextWhite"
                 android:layout_marginBottom="8dp"/>
@@ -139,6 +155,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textColorHint="@color/defaultTextColor"
+                android:textColor="@color/defaultTextColor"
                 android:hint="email"
                 style="@style/EditTextWhite"
                 android:layout_marginBottom="8dp"/>
@@ -148,6 +166,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="password"
                 android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
@@ -156,6 +176,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="confirm password"
                 android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
@@ -165,6 +187,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="staff ID"
                 android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>
@@ -173,6 +197,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:textColor="@color/defaultTextColor"
+                android:textColorHint="@color/defaultTextColor"
                 android:hint="department"
                 android:layout_marginBottom="8dp"
                 style="@style/EditTextWhite"/>

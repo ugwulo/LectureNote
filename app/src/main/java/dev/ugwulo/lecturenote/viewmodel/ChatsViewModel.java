@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CourseViewModel extends ViewModel {
+public class ChatsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public CourseViewModel() {
+    public ChatsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is Course fragment");
     }
 
     public LiveData<String> getText() {

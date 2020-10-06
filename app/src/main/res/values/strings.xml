@@ -32,6 +32,8 @@
     <string name="status_verification_succeeded">Verification succeeded</string>
     <string name="status_sign_in_failed">Sign-in failed</string>
     <string name="instant_validation">(instant validation)</string>
+    <string name="personal_infor">Personal Information</string>
+    <string name="contact_info">Contact Information</string>
 
     <string name="firebase_status_fmt">Firebase UID: %s</string>
     <string name="firebase_user_management">Firebase User Management</string>
@@ -95,7 +97,7 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_course">Courses</string>
+    <string name="menu_chat">Conversation</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_settings">Settings</string>
     <string name="user_profile">Profile</string>
@@ -108,11 +110,14 @@
     <string name="dialog_change_photo">ChangePhotoDialog</string>
     <string name="field_profile_image">image_url</string>
     <string name="dbnode_course">course</string>
-    <string name="onboarding_welcome">Welcome to LectureNotes
+    <string name="onboarding_welcome">LectureNotes
         Department of Computer Science
         Federal Polytechnic Nekede</string>
     <string name="dbnode_lecturer">lecturer</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_notes">Click the image to add new notes</string>
+    <string name="notes_off">There are no notes available for this course yet,
+        check back later</string>
 
 </resources>

@@ -21,17 +21,6 @@ import dev.ugwulo.lecturenote.databinding.CourseItemBinding;
 import dev.ugwulo.lecturenote.model.courses.Course;
 
 public class CourseViewModel extends ViewModel {
-//    private Context mContext;
-//    public CourseHolder(@NonNull Context context){
-//        mContext = context;
-//        options = new FirebaseRecyclerOptions.Builder<Course>()
-//                .setSnapshotArray(courses)
-//                .setLifecycleOwner((LifecycleOwner) mContext)
-//                .build();
-//    }
-//    FirebaseRecyclerOptions<Course> options;
-
-
 
     Query query = FirebaseDatabase.getInstance().getReference().child("course").limitToLast(100);
     FirebaseArray<Course> courses = new FirebaseArray<>(query, new ClassSnapshotParser<>(Course.class));
@@ -64,29 +53,3 @@ public class CourseViewModel extends ViewModel {
          }
      }
 }
-//public class CourseHolder extends RecyclerView.ViewHolder {
-//    CourseItemBinding binding;
-//
-//    public CourseHolder(@NonNull CourseItemBinding courseItemBinding) {
-//        super(courseItemBinding.getRoot());
-//
-//        binding = courseItemBinding;
-//    }
-//
-//    public void bind(Course course){
-//        setCourseCode(course.getCourse_code());
-//        setCourseTitle(course.getCourse_title());
-//        setCourseLecturer(course.getCourse_lecturer());
-//    }
-//    private void setCourseTitle(String title){
-//        binding.tvCourseTitle.setText(title);
-//    }
-//    private void setCourseCode(String courseCode){
-//        binding.tvCourseCode.setText(courseCode);
-//    }
-//
-//    private void setCourseLecturer(String courseLecturer){
-//        binding.tvLecturerName.setText(courseLecturer);
-//    }
-
-//}

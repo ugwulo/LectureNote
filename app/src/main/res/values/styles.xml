@@ -7,8 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- Activity with no Title -->
-    <style name="ThemeOverlay.MyNoTitleActivity" parent="AppTheme">
+    <!-- AppBar -->
+    <style name="AppTheme.AppBarTheme" parent="AppTheme">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

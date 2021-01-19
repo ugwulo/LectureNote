@@ -21,14 +21,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Objects;
-
 import dev.ugwulo.lecturenote.R;
 import dev.ugwulo.lecturenote.databinding.ActivityAuthBinding;
 import dev.ugwulo.lecturenote.util.Settings;
 
-public class AuthActivity extends AppCompatActivity implements View.OnClickListener{
-    private static final String TAG = AuthActivity.class.getSimpleName();
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+    private static final String TAG = LoginActivity.class.getSimpleName();
     FirebaseAuth mAuth;
     ActivityAuthBinding binding;
 
@@ -50,7 +48,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
 
     private void gotoHome(FirebaseUser user) {
         if (user != null){
-            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -60,14 +58,14 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         if (Settings.isLoggedIn()){
-            Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
     private void signUp() {
-        Intent intent = new Intent(AuthActivity.this, SignUpActivity.class);
+        Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
         startActivity(intent);
         finish();
     }

@@ -10,7 +10,7 @@
         android:layout_height="40dp"
         android:text="Choose photo from memory"
         android:textSize="15sp"
-        android:textColor="@color/defaultTextColor"
+        android:textColor="@color/Black"
         android:id="@+id/dialogChoosePhoto"
         android:gravity="center_vertical"/>
 
@@ -20,7 +20,7 @@
         android:layout_height="40dp"
         android:text="Take a Photo"
         android:textSize="15sp"
-        android:textColor="@color/defaultTextColor"
+        android:textColor="@color/Black"
         android:id="@+id/dialogOpenCamera"
         android:gravity="center_vertical"
         android:layout_below="@+id/dialogChoosePhoto"/>

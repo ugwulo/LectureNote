@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?android:windowBackground"
-    android:id="@+id/container"
-    tools:context=".view.courses.CourseDetailsFragment">
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|enterAlways" >
+
+            <androidx.appcompat.widget.Toolbar
+                android:background="?colorPrimary"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/appbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:text=""/>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
         android:id="@+id/mainView"
@@ -18,9 +52,9 @@
             android:layout_marginBottom="40dp">
 
             <ListView
+                android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/listView"
                 android:layout_marginTop="10dp"
                 android:divider="@null">
 
@@ -30,15 +64,17 @@
 
 
         <RelativeLayout
+            android:id="@+id/send_msg_background"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
+            android:visibility="gone"
             android:layout_marginBottom="2dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/chat_msg_bg">
 
-            <ImageView
+            <ImageButton
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="2dp"
@@ -47,7 +83,7 @@
                 android:src="@drawable/ic_attachment"
                 android:id="@+id/send_file"/>
 
-            <ImageView
+            <ImageButton
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:padding="4dp"
@@ -72,6 +108,7 @@
 
         </RelativeLayout>
     </RelativeLayout>
+
     <RelativeLayout
         android:visibility="gone"
         android:id="@+id/lecturer_default_view"
@@ -98,6 +135,7 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="4dp"/>
     </RelativeLayout>
+
     <RelativeLayout
         android:visibility="gone"
         android:id="@+id/student_default_view"
@@ -124,4 +162,5 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="4dp"/>
     </RelativeLayout>
-</FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

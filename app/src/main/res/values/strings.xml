@@ -106,18 +106,20 @@
 
     <!--    firebase db nodes-->
     <string name="dbnode_student">student</string>
+    <string name="dbnode_discussion">discussion</string>
     <string name="field_student_id">student_id</string>
-    <string name="dialog_change_photo">ChangePhotoDialog</string>
+    <string name="dialog_change_photo">Add New Photo</string>
     <string name="field_profile_image">image_url</string>
     <string name="dbnode_course">course</string>
     <string name="onboarding_welcome">LectureNotes
         Department of Computer Science
         Federal Polytechnic Nekede</string>
     <string name="dbnode_lecturer">lecturer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_notes">Click the image to add new notes</string>
     <string name="notes_off">There are no notes available for this course yet,
         check back later</string>
+
+    // bundle
+    <string name="course_code_bundle">COURSE_CODE</string>
 
 </resources>

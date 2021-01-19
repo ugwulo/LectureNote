@@ -1,4 +1,4 @@
-package dev.ugwulo.lecturenote.model.lecturer;
+package dev.ugwulo.lecturenote.model;
 
 public class Lecturer {
     private String lecturer_id;

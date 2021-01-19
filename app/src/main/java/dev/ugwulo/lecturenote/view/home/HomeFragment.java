@@ -4,16 +4,24 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,25 +30,23 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
-import dev.ugwulo.lecturenote.view.FragmentNavigation;
+import java.util.Objects;
+
 import dev.ugwulo.lecturenote.R;
+import dev.ugwulo.lecturenote.databinding.ActivityMainBinding;
 import dev.ugwulo.lecturenote.databinding.CourseItemBinding;
 import dev.ugwulo.lecturenote.databinding.FragmentHomeBinding;
-import dev.ugwulo.lecturenote.model.courses.Course;
+import dev.ugwulo.lecturenote.model.Course;
 import dev.ugwulo.lecturenote.view.AddCourseDialogFragment;
 
 public class HomeFragment extends Fragment implements AddCourseDialogFragment.AddCourseListener {
-    public HomeFragment(){}
-    public static HomeFragment getInstance(){
-        return new HomeFragment();
-    }
+
     private CourseViewModel mCourseViewModel;
 
-    private FragmentNavigation mFragmentNavigation;
     Course mCourse = new Course();
 
     private RecyclerView mRecyclerView;
@@ -48,10 +54,10 @@ public class HomeFragment extends Fragment implements AddCourseDialogFragment.Ad
     private CourseItemBinding mCourseItemBinding;
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        context = getActivity();
-        mFragmentNavigation = (FragmentNavigation) context;
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.course_details, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -64,6 +70,9 @@ public class HomeFragment extends Fragment implements AddCourseDialogFragment.Ad
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(mFragmentHomeBinding.toolbar);
+        Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Home");
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView = mFragmentHomeBinding.recyclerView;
         mRecyclerView.setLayoutManager(layoutManager);
@@ -108,7 +117,9 @@ public class HomeFragment extends Fragment implements AddCourseDialogFragment.Ad
                 holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
                      @Override
                      public void onClick(View view) {
-                          mFragmentNavigation.navigateToCourseDetailsFragment(getItem(position).getCourse_code());
+                         Bundle bundle = new Bundle();
+                         bundle.putString(getString(R.string.course_code_bundle), getItem(position).getCourse_code());
+                         Navigation.findNavController(view).navigate(R.id.action_nav_home_to_courseDetailsFragment, bundle);
                      }
                  });
             }
@@ -146,30 +157,30 @@ public class HomeFragment extends Fragment implements AddCourseDialogFragment.Ad
     }
 
     public static class CourseHolder extends RecyclerView.ViewHolder {
-    CourseItemBinding binding;
+        CourseItemBinding binding;
 
-    public CourseHolder(@NonNull CourseItemBinding courseItemBinding) {
-        super(courseItemBinding.getRoot());
+        public CourseHolder(@NonNull CourseItemBinding courseItemBinding) {
+            super(courseItemBinding.getRoot());
 
-        binding = courseItemBinding;
-    }
+            binding = courseItemBinding;
+        }
 
-    public void bind(Course course){
-        setCourseCode(course.getCourse_code());
-        setCourseTitle(course.getCourse_title());
-        setCourseLecturer(course.getCourse_lecturer());
-    }
-    private void setCourseTitle(String title){
-        binding.tvCourseTitle.setText(title);
-    }
-    private void setCourseCode(String courseCode){
-        binding.tvCourseCode.setText(courseCode);
-    }
+        public void bind(Course course){
+            setCourseCode(course.getCourse_code());
+            setCourseTitle(course.getCourse_title());
+            setCourseLecturer(course.getCourse_lecturer());
+        }
+        private void setCourseTitle(String title){
+            binding.tvCourseTitle.setText(title);
+        }
+        private void setCourseCode(String courseCode){
+            binding.tvCourseCode.setText(courseCode);
+        }
 
-    private void setCourseLecturer(String courseLecturer){
-        binding.tvLecturerName.setText(courseLecturer);
-    }
+        private void setCourseLecturer(String courseLecturer){
+            binding.tvLecturerName.setText(courseLecturer);
+        }
 
-}
+    }
 
 }

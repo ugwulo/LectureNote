@@ -9,7 +9,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
-import dev.ugwulo.lecturenote.model.courses.Course
+import dev.ugwulo.lecturenote.model.Course
 
 class CourseVM : ViewModel() {
     val query: Query = FirebaseDatabase.getInstance().reference.child("course").limitToLast(100)

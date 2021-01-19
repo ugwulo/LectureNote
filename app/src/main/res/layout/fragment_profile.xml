@@ -232,7 +232,8 @@
         android:gravity="center"
         android:text="@string/save"
         android:textColor="@color/colorWhite"
-        android:textSize="23sp" />
+        android:textSize="23sp"
+        android:visibility="invisible"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

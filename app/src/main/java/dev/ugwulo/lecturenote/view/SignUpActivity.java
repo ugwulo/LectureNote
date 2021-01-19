@@ -24,8 +24,8 @@ import java.util.Objects;
 
 import dev.ugwulo.lecturenote.R;
 import dev.ugwulo.lecturenote.databinding.ActivitySignUpBinding;
-import dev.ugwulo.lecturenote.model.lecturer.Lecturer;
-import dev.ugwulo.lecturenote.model.student.Student;
+import dev.ugwulo.lecturenote.model.Lecturer;
+import dev.ugwulo.lecturenote.model.Student;
 import dev.ugwulo.lecturenote.util.Settings;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
@@ -260,7 +260,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     private void redirectToLoginScreen() {
         Log.d(TAG, "redirectToLoginScreen: REDIRECT USER TO LOGIN");
-        Intent intent = new Intent(SignUpActivity.this, AuthActivity.class);
+        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
@@ -292,7 +292,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.txt_sign_in){
-            Intent intent = new Intent(SignUpActivity.this, AuthActivity.class);
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         }

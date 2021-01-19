@@ -1,4 +1,4 @@
-package dev.ugwulo.lecturenote.model.courses;
+package dev.ugwulo.lecturenote.model;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 

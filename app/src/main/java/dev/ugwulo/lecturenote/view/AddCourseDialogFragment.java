@@ -52,6 +52,7 @@ public class AddCourseDialogFragment extends DialogFragment {
                         mAddCourseListener.onDialogNegativeClick(AddCourseDialogFragment.this);
                     }
                 });
+        builder.setCancelable(false);
         return builder.create();
     }
 

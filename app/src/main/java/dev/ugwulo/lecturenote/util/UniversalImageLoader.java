@@ -85,7 +85,7 @@ public class UniversalImageLoader {
 //
 //        import dev.ugwulo.lecturenote.R;
 //        import dev.ugwulo.lecturenote.databinding.FragmentProfileBinding;
-//        import dev.ugwulo.lecturenote.model.student.Student;
+//        import dev.ugwulo.lecturenote.model.Student;
 //        import dev.ugwulo.lecturenote.view.AuthActivity;
 //        import dev.ugwulo.lecturenote.view.ChangePhotoDialog;
 //

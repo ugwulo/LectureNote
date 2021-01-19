@@ -3,7 +3,6 @@ package dev.ugwulo.lecturenote.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,7 +10,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -33,7 +31,7 @@ public class OnboardingActivity extends AppCompatActivity implements View.OnClic
         Settings.init(getApplicationContext());
 
         if (Settings.isFirstTimeLaunch()){
-            Intent intent = new Intent(this, AuthActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
         }

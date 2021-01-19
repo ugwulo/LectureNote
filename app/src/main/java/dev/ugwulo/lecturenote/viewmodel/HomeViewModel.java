@@ -15,9 +15,7 @@ import com.google.firebase.database.Query;
 import java.util.Collections;
 import java.util.List;
 
-import dev.ugwulo.lecturenote.R;
-import dev.ugwulo.lecturenote.model.courses.Course;
-import dev.ugwulo.lecturenote.repository.FirebaseDatabaseRepository;
+import dev.ugwulo.lecturenote.model.Course;
 
 public class HomeViewModel extends ViewModel {
 

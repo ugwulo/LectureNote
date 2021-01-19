@@ -1,4 +1,4 @@
-package dev.ugwulo.lecturenote.model.student;
+package dev.ugwulo.lecturenote.model;
 
 public class Student {
 

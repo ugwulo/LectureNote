@@ -98,7 +98,8 @@
             android:layout_height="wrap_content"
             android:hint="Registration No.">
             <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textPassword"
+
+                android:inputType="textCapCharacters"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
@@ -111,7 +112,7 @@
             android:layout_height="wrap_content"
             android:hint="Staff ID">
             <com.google.android.material.textfield.TextInputEditText
-                android:inputType="textPassword"
+                android:inputType="textCapCharacters"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />

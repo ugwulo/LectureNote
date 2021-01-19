@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }else if (i == R.id.textForgotPassword){
 //            forgotPassword();
         }else if (i == R.id.btn_sign_in){
-            signInUser(binding.email.getText().toString(), binding.password.getText().toString());
+            signInUser(binding.email.getEditText().getText().toString(), binding.password.getEditText().getText().toString());
         }
     }
 
@@ -117,8 +117,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private boolean validateLoginForm() {
          boolean valid = true;
 
-         String email = binding.email.getText().toString();
-         String password = binding.password.getText().toString();
+         String email = binding.email.getEditText().getText().toString();
+         String password = binding.password.getEditText().getText().toString();
 
          if (TextUtils.isEmpty(email)){
              binding.email.setError("Required");
